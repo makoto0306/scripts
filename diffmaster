@@ -2,5 +2,5 @@
 
 # 引数のファイル名をmasterと比較
 branch_name=`git rev-parse --abbrev-ref HEAD`
-eval "git diff ${branch_name}:${1} master:${1}"
+eval "git diff master:${1} ${branch_name}:${1} "
 
