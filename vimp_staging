@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# 引数のファイル名をmasterと比較
+staging_files=`git diff --cached --name-only`
+arr=($staging_files)
+echo ${arr[1]}
+eval "vim -p ${arr[@]}"
+
