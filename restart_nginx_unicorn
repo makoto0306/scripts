@@ -1,0 +1,8 @@
+#!/bin/bash  
+# locate this file at /usr/bin
+
+sudo service nginx restart
+kill -9 `cat tmp/pids/unicorn.pid`;
+rake assets:clobber RAILS_ENV=production;
+rake assets:precompile RAILS_ENV=production;
+unicorn_rails -c config/unicorn.conf.rb -E production -D;
